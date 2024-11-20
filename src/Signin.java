@@ -37,7 +37,8 @@ public class Signin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(153, 255, 51));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 18)); // NOI18N
@@ -46,17 +47,17 @@ public class Signin extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Serif", 0, 10)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("USER NAME");
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Serif", 0, 10)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("CONFIRM PASSWORD");
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Serif", 0, 10)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("EMAIL");
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -67,12 +68,12 @@ public class Signin extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Serif", 0, 10)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("PASSWORD");
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Snap ITC", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(102, 255, 51));
         jButton1.setText("SIGN UP");
         jButton1.setToolTipText("");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -227,12 +228,12 @@ public class Signin extends javax.swing.JFrame {
         if (isValid) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/guestquest", "root", "")) {
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hilltop", "root", "")) {
                 // Create statement for executing the SQL commands
                 Statement stmt = con.createStatement();
                 
                 // Insert into stdinfo, excluding the auto-incremented User_ID
-                String insertQuery = "INSERT INTO Users (username, email, password) VALUES ('" + username + "', '" + email + "', '" + password + "')";
+                String insertQuery = "INSERT INTO User (username, email, password) VALUES ('" + username + "', '" + email + "', '" + password + "')";
                 stmt.executeUpdate(insertQuery); // Execute the insert
 
 
